@@ -30,4 +30,4 @@ let run =
                          (arr2 |> Seq.filter ((=) x) |> Seq.length ) * x)
                      |> Array.sum
     
-    printfn $"Part 2: %A{occurances}"
+    printfn $"Part 2: %d{occurances}"
