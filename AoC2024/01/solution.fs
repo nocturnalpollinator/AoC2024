@@ -11,13 +11,13 @@ let run =
                          |> Array.filter(fun x -> x.Length > 0)
                          |> Array.map(fun x -> x |> int)
                 
-    let filterIndex x condition = x
-                                  |> Array.mapi(fun i x -> if condition i then -1 else x)
-                                  |> Array.filter(fun x -> x <> -1)
-                                  |> Array.sort
+    let filterIndexAndSort x condition = x
+                                         |> Array.mapi(fun i x -> if condition i then -1 else x)
+                                         |> Array.filter(fun x -> x <> -1)
+                                         |> Array.sort
                                
-    let arr1 = filterIndex parsedIntArray (fun x -> x % 2 = 0)
-    let arr2 = filterIndex parsedIntArray (fun x -> x % 2 = 1)
+    let arr1 = filterIndexAndSort parsedIntArray (fun x -> x % 2 = 0)
+    let arr2 = filterIndexAndSort parsedIntArray (fun x -> x % 2 = 1)
     
     let sum = (arr1, arr2)
               ||> Array.map2(fun x y -> abs(x - y))
